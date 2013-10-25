@@ -1,18 +1,25 @@
-key = ""; // insert key here
+
 function showDPLA(){
 //$("body").css({"background-color":"green"});
-$(".bibInfoLabel").each(function(key,value){
-console.log(key+" "+value);
+subjects = "";
+$(".bibInfoLabel").each(function(key,val){
+console.log(val);
+	if ($(val).text()=="Subject"){
+		subval = $(val).parent().text().substring(8);
+		subjects = subval.split(" ")[0];
+		console.log(subval);
+	}
+	
 });
 
 $("body").append("<div id='dplaColumn'></div>");
-    getPics();
+    getPics(subjects);
 	
 
 }
 function getPics(){
 
-url = "http://api.dp.la/v2/items?sourceResource.subject=yodeling&api_key="+key
+url = "http://api.dp.la/v2/items?q="+subjects+"&api_key=75955e531b6e9735b56711e5cacaf02f"
 
 var xhr = new XMLHttpRequest();
 xhr.open("GET", url, true);
@@ -29,7 +36,8 @@ xhr.send();
 function showPics(data){
 j = JSON.parse(data);
 for (i=0;i<j["docs"].length;i++){
-$("#dplaColumn").append("<img src='"+j["docs"][i]["object"]+"'/><div>"+j["docs"][i]["sourceResource"]["title"]+"</div>");
+
+$("#dplaColumn").append("<a href='"+j["docs"][i]["isShownAt"]+"'><img src='"+j["docs"][i]["object"]+"'/><div>"+j["docs"][i]["sourceResource"]["title"]+"</div></a>");
 
 }
 
