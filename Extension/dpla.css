@@ -1,0 +1,13 @@
+body{
+	background-color: red;
+}
+#dplaColumn{
+position: absolute;
+right: 0px;
+top: 0px;
+height: 500px;
+width: 100px;
+background-color: #CCC;
+
+z-index: 9999;
+}
