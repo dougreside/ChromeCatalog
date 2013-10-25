@@ -1,6 +1,6 @@
 {
-  "name": "Page Redder",
-  "description": "Make the current page red",
+  "name": "Chrome Catalog",
+  "description": "Search DPLA for items related to catalog record",
   "version": "2.0",
   "permissions": [
     "activeTab"
@@ -19,7 +19,7 @@
     "persistent": false
   },
   "browser_action": {
-    "default_title": "Make this page red"
+    "default_title": "Search DPLA"
   },
   "manifest_version": 2
 }
